@@ -98,7 +98,7 @@ def solve_a(seed=42, verbose=False):
     Tmax = core.missile_impact_time('M1')
     bounds = [(0.0, Tmax)]
     for _ in SIM_ASSIGN:
-        bounds += [(0.0, 1.0), (0.0, core.CLOUD_LIFE)]
+        bounds += [(0.0, 1.0), (1.0, core.CLOUD_LIFE)]   # offset>=1s 强制云团上方起爆下沉
 
     # 阶段 1：宽半径代理引导
     res = differential_evolution(lambda x: _joint_surrogate(x, 40.0, 0.02), bounds,

@@ -8,7 +8,8 @@ import os
 import core
 from openpyxl import load_workbook
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # 项目根目录
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # 项目根目录(easy-model)
+TEMPLATE_DIR = os.path.normpath(os.path.join(BASE, '..', 'strict-model'))  # 官方模板所在
 
 
 def _drop(b):
@@ -31,7 +32,7 @@ def _r(x, nd=2):
 
 def write_result1(bombs, out=None):
     """Q3：FY1 三弹 -> result1.xlsx。bombs 已按投放顺序排列。"""
-    src = os.path.join(BASE, 'result1.xlsx')
+    src = os.path.join(TEMPLATE_DIR, 'result1.xlsx')
     out = out or os.path.join(BASE, 'result1_out.xlsx')
     wb = load_workbook(src)
     ws = wb.active
@@ -50,7 +51,7 @@ def write_result1(bombs, out=None):
 
 def write_result2(bombs, out=None):
     """Q4：FY1/FY2/FY3 各一弹 -> result2.xlsx。bombs 按无人机名顺序。"""
-    src = os.path.join(BASE, 'result2.xlsx')
+    src = os.path.join(TEMPLATE_DIR, 'result2.xlsx')
     out = out or os.path.join(BASE, 'result2_out.xlsx')
     wb = load_workbook(src)
     ws = wb.active
@@ -69,7 +70,7 @@ def write_result2(bombs, out=None):
 
 def write_result3(bombs, out=None):
     """Q5：15 弹 -> result3.xlsx。bombs 需含 'missile' 字段；按模板 UAV 顺序排布。"""
-    src = os.path.join(BASE, 'result3.xlsx')
+    src = os.path.join(TEMPLATE_DIR, 'result3.xlsx')
     out = out or os.path.join(BASE, 'result3_out.xlsx')
     wb = load_workbook(src)
     ws = wb.active

@@ -97,3 +97,15 @@ pbaspect([1.4 0.6 0.7]);
 view([-37.5 20]);    % 视角（方位角, 仰角），可自行调整
 
 hold off;
+
+%% ---- 自动保存图片 ----
+% 输出到 ../figures/fig1_几何三维图_matlab.png（300 dpi）
+outdir = fullfile(fileparts(mfilename('fullpath')), '..', 'figures');
+if ~exist(outdir, 'dir'); mkdir(outdir); end
+outfile = fullfile(outdir, 'fig1_几何三维图_matlab.png');
+if exist('exportgraphics', 'builtin') || exist('exportgraphics', 'file')
+    exportgraphics(gcf, outfile, 'Resolution', 300);   % MATLAB R2020a+
+else
+    print(gcf, outfile, '-dpng', '-r300');             % 旧版 MATLAB 回退
+end
+fprintf('图片已保存: %s\n', outfile);

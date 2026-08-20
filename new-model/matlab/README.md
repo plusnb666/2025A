@@ -34,6 +34,8 @@ solve_Q1         % 单问运行：约 1 s，应复现论文 1.391643 s
 
 - 控制台：与论文表 1/2/3 同格式的投放策略与效能表格
 - `result1.xlsx`（问题 3）、`result2.xlsx`（问题 4）、`result3.xlsx`（问题 5），列格式与题目模板一致
+- `result.md`：完整模式（`run_all(false)`）实测结果与论文的逐项对照，含问题 5 数值口径差异说明
+- `run_all_full_log.txt` / `run_all_quick_log.txt`：完整/快速模式运行日志
 
 ## 说明
 
